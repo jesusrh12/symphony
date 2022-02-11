@@ -67,7 +67,16 @@ jobs:
         run: docker-compose build --parallel
       - name: docker images
         run: docker images
+      - name: Start services
+        run: docker-compose up -d --scale tests=0 --scale pytests=0
+      - name: Run go tests
+        run: docker-compose run --use-aliases tests
+      - name: Run python tests
+        run: docker-compose run --use-aliases pytests
+      - name: Stop services
+        if: ${{ always() }}
+        run: docker-compose down
       - name: docker tag
-        run: docker tag integration_migrate:latest 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
+        run: docker tag integration_migrate:v1 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
       - name: docker push
-        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
+        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:v1
