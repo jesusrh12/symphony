@@ -70,4 +70,4 @@ jobs:
       - name: docker tag
         run: docker tag integration_migrate:latest 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
       - name: docker push
-        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/integration_store:latest
+        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
