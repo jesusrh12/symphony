@@ -48,7 +48,6 @@ require (
 	github.com/uber/jaeger-lib v2.4.0+incompatible // indirect
 	github.com/uber/tchannel-go v1.20.1 // indirect
 	github.com/vektah/gqlparser/v2 v2.1.0
-	github.com/vektra/mockery v1.1.2 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.1.0
 	github.com/xuri/efp v0.0.0-20201016154823-031c29024257 // indirect
 	go.opencensus.io v0.22.5
@@ -63,7 +62,7 @@ require (
 	golang.org/x/oauth2 v0.0.0-20201208152858-08078c50e5b5 // indirect
 	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a
 	golang.org/x/sys v0.0.0-20201207223542-d4d67f95c62d // indirect
-	golang.org/x/text v0.3.4
+	golang.org/x/text v0.3.7
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 	golang.org/x/tools v0.0.0-20201208233053-a543418bbed2 // indirect
 	google.golang.org/genproto v0.0.0-20201209185603-f92720507ed4 // indirect
