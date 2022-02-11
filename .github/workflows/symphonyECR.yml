@@ -63,7 +63,6 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: login ecr
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 759857925977.dkr.ecr.us-east-1.amazonaws.com
-      - uses: actions/checkout@v2
       - name: docker compose
         run: docker-compose build --parallel
       - name: docker images
