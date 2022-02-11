@@ -87,6 +87,6 @@ jobs:
       - name: login ecr
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 759857925977.dkr.ecr.us-east-1.amazonaws.com
       - name: docker tag
-        run: docker tag integration_migrate:v1 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
+        run: docker tag integration_migrate:latest 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
       - name: docker push
-        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:v1
+        run: docker push 759857925977.dkr.ecr.us-east-1.amazonaws.com/symphony:latest
