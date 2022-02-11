@@ -57,4 +57,3 @@ jobs:
         run: docker-compose build --parallel
       - name: docker images
         run: docker images
-      - name: nada
