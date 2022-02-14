@@ -55,7 +55,14 @@ jobs:
         with:
             projectBaseDir: .
             args: >
-              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+              -Dsonar.projectKey=jesusrh12_symphony-master
+              -Dsonar.exclusions=graph/graphql/generated/**, graph/graphql/model/**, graph/graphql/schema/**, graph/graphql/**.go, graph/graphql/gqlgen.yml, pkg/ent/schema/**.go, pkg/ent/mutation.go
+              -Dsonar.sources=graph/graphql, graph/resolverutil, pkg/ent/schema
+              -Dsonar.sourceEncoding=UTF-8
+              -Dsonar.java.binaries=*
+              -sonar.tests=graph/graphql/complexity, graph/graphql/directive, graph/graphql/resolver
+              -Dsonar.test.inclusions=**/**_test.go
+              
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
