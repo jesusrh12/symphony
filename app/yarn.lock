@@ -2,21 +2,21 @@
 # yarn lockfile v1
 
 
-"@babel/cli@^7.2.3":
-  version "7.12.10"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.10.tgz#67a1015b1cd505bde1696196febf910c4c339a48"
-  integrity sha512-+y4ZnePpvWs1fc/LhZRTHkTesbXkyBYuOB+5CyodZqrEuETXi3zOVfpAQIdgC3lXbHLTDG9dQosxR9BhvLKDLQ==
+"@babel/cli@^7.17.6":
+  version "7.17.6"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.17.6.tgz#169e5935f1795f0b62ded5a2accafeedfe5c5363"
+  integrity sha512-l4w608nsDNlxZhiJ5tE3DbNmr61fIKMZ6fTBo171VEFuFMIYuJ3mHRhTLEkKKyvx2Mizkkv/0a8OJOnZqkKYNA==
   dependencies:
+    "@jridgewell/trace-mapping" "^0.3.4"
     commander "^4.0.1"
     convert-source-map "^1.1.0"
     fs-readdir-recursive "^1.1.0"
     glob "^7.0.0"
-    lodash "^4.17.19"
     make-dir "^2.1.0"
     slash "^2.0.0"
     source-map "^0.5.0"
   optionalDependencies:
-    "@nicolo-ribaudo/chokidar-2" "2.1.8-no-fsevents"
+    "@nicolo-ribaudo/chokidar-2" "2.1.8-no-fsevents.3"
     chokidar "^3.4.0"
 
 "@babel/code-frame@7.8.3":
@@ -1228,8 +1228,8 @@
 "@fbcnms/auth@file:@fbcnms/auth":
   version "0.1.2"
   dependencies:
-    "@fbcnms/express-middleware" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-auth-0.1.2-e1962115-f150-4e0e-92ae-1d9a2ebed766-1635135397447/node_modules/@fbcnms/express-middleware"
-    "@fbcnms/sequelize-models" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-auth-0.1.2-e1962115-f150-4e0e-92ae-1d9a2ebed766-1635135397447/node_modules/@fbcnms/sequelize-models"
+    "@fbcnms/express-middleware" "file:@fbcnms/express-middleware"
+    "@fbcnms/sequelize-models" "file:@fbcnms/sequelize-models"
     "@fbcnms/webpack-config" "^0.1.0"
     email-validator "^2.0.4"
     openid-client "2.4.5"
@@ -1243,7 +1243,7 @@
   version "0.1.1"
   dependencies:
     "@fbcnms/logging" "^0.1.0"
-    "@fbcnms/sequelize-models" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-express-middleware-0.1.1-0090da52-ae93-4881-94de-c330549ab4ef-1635135397551/node_modules/@fbcnms/sequelize-models"
+    "@fbcnms/sequelize-models" "file:@fbcnms/sequelize-models"
     body-parser "^1.18.3"
     compression "^1.7.1"
     cookie-parser "^1.4.3"
@@ -1275,12 +1275,12 @@
 "@fbcnms/platform-server@file:@fbcnms/platform-server":
   version "0.1.25"
   dependencies:
-    "@fbcnms/auth" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-platform-server-0.1.25-bb7a9deb-973d-4fd6-9f28-f94b0935d01e-1635135397589/node_modules/@fbcnms/auth"
+    "@fbcnms/auth" "file:@fbcnms/auth"
     "@fbcnms/babel-register" "^0.1.0"
-    "@fbcnms/express-middleware" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-platform-server-0.1.25-bb7a9deb-973d-4fd6-9f28-f94b0935d01e-1635135397589/node_modules/@fbcnms/express-middleware"
+    "@fbcnms/express-middleware" "file:@fbcnms/express-middleware"
     "@fbcnms/logging" "^0.1.0"
     "@fbcnms/magma-api" "^0.1.0"
-    "@fbcnms/sequelize-models" "file:../../../../Library/Caches/Yarn/v6/npm-@fbcnms-platform-server-0.1.25-bb7a9deb-973d-4fd6-9f28-f94b0935d01e-1635135397589/node_modules/@fbcnms/sequelize-models"
+    "@fbcnms/sequelize-models" "file:@fbcnms/sequelize-models"
     "@fbcnms/types" "^0.1.10"
     "@fbcnms/util" "^0.1.0"
     add "^2.0.6"
@@ -1636,6 +1636,24 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@jridgewell/resolve-uri@^3.0.3":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.5.tgz#68eb521368db76d040a6315cdb24bf2483037b9c"
+  integrity sha512-VPeQ7+wH0itvQxnG+lIzWgkysKIr3L9sslimFW55rHMdGu/qCQ5z5h9zq4gI8uBtqkpHhsF4Z/OwExufUCThew==
+
+"@jridgewell/sourcemap-codec@^1.4.10":
+  version "1.4.11"
+  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.11.tgz#771a1d8d744eeb71b6adb35808e1a6c7b9b8c8ec"
+  integrity sha512-Fg32GrJo61m+VqYSdRSjRXMjQ06j8YIYfcTqndLYVAaHmroZHLJZCydsWBOTDqXS2v+mjxohBWEMfg97GXmYQg==
+
+"@jridgewell/trace-mapping@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.4.tgz#f6a0832dffd5b8a6aaa633b7d9f8e8e94c83a0c3"
+  integrity sha512-vFv9ttIedivx0ux3QSjhgtCVjPZd5l46ZOMDSCwnH1yUO2e964gO8LZGyv2QkqcgR6TnBU1v+1IFqmeoG+0UJQ==
+  dependencies:
+    "@jridgewell/resolve-uri" "^3.0.3"
+    "@jridgewell/sourcemap-codec" "^1.4.10"
+
 "@mapbox/geojson-area@0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@mapbox/geojson-area/-/geojson-area-0.2.2.tgz#18d7814aa36bf23fbbcc379f8e26a22927debf10"
@@ -1848,22 +1866,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents":
-  version "2.1.8-no-fsevents"
-  resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.tgz#da7c3996b8e6e19ebd14d82eaced2313e7769f9b"
-  integrity sha512-+nb9vWloHNNMFHjGofEam3wopE3m1yuambrrd/fnPc+lFOMB9ROTqQlche9ByFWNkdNqfSgR/kkQtQ8DzEWt2w==
-  dependencies:
-    anymatch "^2.0.0"
-    async-each "^1.0.1"
-    braces "^2.3.2"
-    glob-parent "^3.1.0"
-    inherits "^2.0.3"
-    is-binary-path "^1.0.0"
-    is-glob "^4.0.0"
-    normalize-path "^3.0.0"
-    path-is-absolute "^1.0.0"
-    readdirp "^2.2.1"
-    upath "^1.1.1"
+"@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
+  version "2.1.8-no-fsevents.3"
+  resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz#323d72dd25103d0c4fbdce89dadf574a787b1f9b"
+  integrity sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
