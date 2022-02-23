@@ -53,10 +53,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0    
+          
+          -name: lista de workspace
+          run: ls -la
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
-            run: ls -la
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master  
