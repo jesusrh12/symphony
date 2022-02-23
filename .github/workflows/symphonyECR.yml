@@ -56,10 +56,12 @@ jobs:
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
+            run: ls -la
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master  
-              run: ls -la
+              
+       
         
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
