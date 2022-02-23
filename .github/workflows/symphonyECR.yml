@@ -49,6 +49,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage-report
+          path: symphony
         
       
         
@@ -63,6 +64,8 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code-coverage-report
+          path: symphony
+          
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
