@@ -45,13 +45,6 @@ jobs:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
         run: go test -v -race ./... -cover --coverprofile=cov.out ./...
       
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
-        with:
-          name: code-coverage-report
-          path: symphony
-        
-      
         
  sonarqube:
     runs-on: ubuntu-latest
@@ -61,7 +54,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Download code coverage results
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: code-coverage-report
           path: symphony
