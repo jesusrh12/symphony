@@ -58,11 +58,7 @@ jobs:
         with:
             projectBaseDir: .
             args: >
-              -Dsonar.projectKey=jesusrh12_symphony-master
-              
-      - name: Lista 
-        run: ls -la
-            
+              -Dsonar.projectKey=jesusrh12_symphony-master           
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
