@@ -42,8 +42,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -v -race ./... - go test -cover --coverprofile=coverage.out ./...
-          - go vet ./...
+        run: go test -v -race ./...  -cover --coverprofile=coverage.out ./...
           - coverage.out    
         
  sonarqube:
