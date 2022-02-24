@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage-report
-          path: /github/workspace
+          path: -rw-r--r--
         
  sonarqube:
     runs-on: ubuntu-latest
