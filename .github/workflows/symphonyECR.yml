@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage-report
-          path: -rw-r--r--
+          path: /home/runner/work/symphony/symphony/cov.out
         
  sonarqube:
     runs-on: ubuntu-latest
@@ -64,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: code-coverage-report
-          path: /github/workspace  
+          path: /home/runner/work/symphony/symphony/cov.out
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
