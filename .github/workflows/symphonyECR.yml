@@ -69,7 +69,10 @@ jobs:
           path: /home/runner/work/symphony/symphony/coverage.out
           
       - name: Lista Workspace
-        run: ls -la | pwd
+        run: ls -la 
+        
+      - name: Ubicacion actual
+        run: pwd
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
