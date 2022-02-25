@@ -43,14 +43,14 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -v -race ./... -cover -coverprofile=coverage.xml 
+        run: go test -v -race ./... -cover -coverprofile=coverage.out ./symphony/...
       - name: lista de cobertura coverage.out
-        run: go tool cover -func=coverage.xml
+        run: go tool cover -func=coverage.out
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
         with:
           name: coverage.out
-          path: coverage.xml        
+          path: coverage.out       
       - name: Lista Workspace
         run: ls -la
 
@@ -66,7 +66,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: coverage.out
-          path: coverage.xml
+          path: coverage.out
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
