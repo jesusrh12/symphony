@@ -43,10 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race ./... 
-        
-      - name: Create archive coverage 
-        run: -cover -coverprofile=./coverage.out ./...
+        run: go test -race ./... -cover -coverprofile=./coverage.out ./...
       
       - name: lista de cobertura coverage.out
         run: go tool cover -func=coverage.out
