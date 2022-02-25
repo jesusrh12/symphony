@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -v -race ./... -cover -coverprofile=coverage.out 
+        run: go test -v -race ./... -coverprofile=coverage.out | go tool cover -html=coverage.out
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
         with:
