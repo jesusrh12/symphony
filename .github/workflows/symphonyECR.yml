@@ -53,7 +53,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Coverage
-        run: -cover -coverprofile=coverage.out
+        run: go test -coverprofile=coverage.out
         
       - name: lista de cobertura coverage.out
         run: go tool cover -func=coverage.out
