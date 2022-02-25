@@ -63,6 +63,8 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: ${{ runner.os }}-go- 
       - name: Coverage
+        env:
+          DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
         run: go test -cover -coverprofile=coverage.out
         
       - name: lista de cobertura coverage.out
