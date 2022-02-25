@@ -43,16 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -v -race ./... -cover -coverprofile=coverage.out github.com/jesusrh12/symphony
-      - name: lista de cobertura coverage.out
-        run: go tool cover -func=coverage.out
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
-        with:
-          name: coverage.out
-          path: coverage.out       
-      - name: Lista Workspace
-        run: ls -la
+        run: go test -v -race ./...
 
  sonarqube:
     runs-on: ubuntu-latest
@@ -60,22 +51,33 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0    
+          fetch-depth: 0
+      - name: Coverage
+        run: -cover -coverprofile=coverage.out
+        
+      - name: lista de cobertura coverage.out
+        run: go tool cover -func=coverage.out
+        
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage.out
+          path: coverage.out   
           
       - name: Download code coverage results
         uses: actions/download-artifact@v1
         with:
           name: coverage.out
           path: coverage.out
+          
+      - name: Lista Workspace
+        run: ls -la
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
             projectBaseDir: .
             args: >
-              -Dsonar.projectKey=jesusrh12_symphony-master  
-              
-       
-        
+              -Dsonar.projectKey=jesusrh12_symphony-master      
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
