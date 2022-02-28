@@ -77,7 +77,7 @@ jobs:
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
-            projectBaseDir: .
+            projectBaseDir: /home/runner/work/symphony/symphony
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
               -Dsonar.go.coverage.reportPaths=coverage.out
