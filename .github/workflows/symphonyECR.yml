@@ -56,7 +56,7 @@ jobs:
           fetch-depth: 0
           
       - name: Cobertura sonarqube
-        run: -cover -coverprofile=coverage.out 
+        run: go test -cover -coverprofile=coverage.out 
         
       - name: lista de cobertura coverage.out
         run: go tool cover -func=coverage.out
