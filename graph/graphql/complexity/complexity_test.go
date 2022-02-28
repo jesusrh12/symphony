@@ -49,6 +49,7 @@ func TestComplexityRoot(t *testing.T) {
 		"exempted set contains unchecked items: %s", exempted,
 	)
 }
+
 func TestQueryComplexity(t *testing.T) {
 	exempted := strset.New(
 		"ActionType",
