@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race ./... -cover -coverprofile=coverage.out 
+        run: go test -race ./...  
       
       - name: lista de cobertura coverage.out
         run: go tool cover -func=coverage.out
@@ -61,6 +61,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          
+      - name: Cobertura sonarqube
+        run: -cover -coverprofile=coverage.out 
        
       - name: Download code coverage results
         uses: actions/download-artifact@v1
