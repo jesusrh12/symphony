@@ -56,7 +56,7 @@ jobs:
       - name: coverage 
         run: |
               go version &&
-              go test -covermode=atomic -cover -coverprofile=coverage.out -covermode=count -json > report.json ./... &&
+              go test -covermode=atomic -cover -coverprofile=coverage.out -covermode=count -json > report.json && gocov convert coverage.out | gocov-xml >covery.xml ./... &&
               ls -lah 
               exit 0
       
