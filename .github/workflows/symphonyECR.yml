@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race -v  ./... && -json symphony > symphony/test-report.json
+        run: go test -race -v  ./... && -json > report.json
 
  sonarqube:
     runs-on: ubuntu-latest
