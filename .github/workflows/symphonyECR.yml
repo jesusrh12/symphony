@@ -57,9 +57,12 @@ jobs:
         run: |
               go version &&
               go test -covermode=atomic -coverprofile=coverage.out ./... &&
-              ls -lah && -json > report.json
+              ls -lah 
               exit 0
               
+      - name: report tests
+        run: go test -json > report.json
+      
       - name: Ubicacion actual
         run: pwd
        
