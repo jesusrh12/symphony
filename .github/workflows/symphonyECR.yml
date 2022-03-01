@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race ./... -json > report.json
+        run: go test -race ./... 
 
  sonarqube:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         run: |
               go version &&
               go test -covermode=atomic -coverprofile=coverage.out ./... &&
-              ls -lah
+              ls -lah && -json > report.json
               exit 0
               
       - name: Ubicacion actual
