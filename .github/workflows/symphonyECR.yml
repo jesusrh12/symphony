@@ -56,7 +56,7 @@ jobs:
       - name: coverage 
         run: |
               go version &&
-              go test -covermode=atomic -coverprofile=coverage.out ./... &&
+              go test -covermode=atomic -coverprofile=coverage.out -json symphony > symphony/test-report.json ./... &&
               ls -lah 
               exit 0
       
