@@ -57,7 +57,7 @@ jobs:
         run: |
               go version &&
               go test -covermode=atomic -coverprofile=coverage.out -covermode=count -json > report.json ./... &&
-              ls -lah 
+              ls -lah coverage
               exit 0
    
       
