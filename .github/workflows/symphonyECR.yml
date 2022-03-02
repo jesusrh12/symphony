@@ -59,9 +59,7 @@ jobs:
               go test -covermode=atomic -coverprofile=coverage.out -covermode=count -json > report.json ./... &&
               ls -lah 
               exit 0
-              
-      - name: golangci-lint
-        run: golangci-lint run ./... --verbose --no-config --out-format checkstyle > golangci-lint.out
+   
       
       - name: Ubicacion actual
         run: pwd
@@ -73,7 +71,7 @@ jobs:
               -Dsonar.projectKey=jesusrh12_symphony-master
               -Dsonar.go.coverage.reportPaths=coverage.out
               -Dsonar.go.tests.reportPaths=report.json
-              -Dsonar.go.golangci-lint.reportPaths=golangci-lint.out
+   
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
