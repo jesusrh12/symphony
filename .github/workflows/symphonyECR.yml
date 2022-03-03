@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race -v 
+        run: go test -race -v ./...
 
  sonarqube:
     runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
        
       - uses: sonarsource/sonarqube-scan-action@master
         with:
-            projectBaseDir: /github/workspace/
+            projectBaseDir: /home/runner/work/symphony/symphony
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
               -Dsonar.go.coverage.reportPaths=coverage.out
