@@ -56,7 +56,7 @@ jobs:
       - name: coverage 
         run: |
               go version &&
-              go test  -covermode=atomic -coverprofile=coverage.out -covermode=count -json > report.json ./... &&
+              go test  -covermode=atomic -coverprofile=coverage.xml -covermode=count -json > report.json ./... &&
               ls -lah 
               exit 0
    
@@ -70,7 +70,7 @@ jobs:
             projectBaseDir: /home/runner/work/symphony/symphony
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.out
+              -Dsonar.go.coverage.reportPaths=coverage.xml
               -Dsonar.go.tests.reportPaths=report.json
    
         env:
