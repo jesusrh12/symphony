@@ -53,20 +53,8 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: coverage
-        run: |
-              go version &&
-              go test -coverprofile=coverage.out -covermode=count -json > report.json ./...
-              exit 0
-       
-      - uses: sonarsource/sonarqube-scan-action@master
-        with:
-            projectBaseDir: .
-            args: >
-              -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.out
-              -Dsonar.go.tests.reportPaths=report.json
-             
+      - name: Sonar Scan
+        uses: sonarsource/sonarqube-scan-action@master           
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
@@ -74,6 +62,12 @@ jobs:
 
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
+        with:
+            projectBaseDir: .
+            args: >
+              -Dsonar.projectKey=jesusrh12_symphony-master
+              -Dsonar.go.coverage.reportPaths=coverage.out
+              -Dsonar.go.tests.reportPaths=report.json
         # Force to fail step after specific time
         timeout-minutes: 4
         env:
