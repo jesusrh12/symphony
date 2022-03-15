@@ -55,7 +55,7 @@ jobs:
       - name: Sonar Scan
         run: |
               go version &&
-              go test -coverprofile=coverage.out -covermode=count -json > report.json .
+              go test -coverprofile=coverage.out -covermode=count -json > report.json ./...
               exit 0
       - name: Fix code coverage paths
         working-directory: .
@@ -66,7 +66,7 @@ jobs:
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.out
+              -Dsonar.go.coverage.reportPaths=./coverage.out
               -Dsonar.go.tests.reportPaths=report.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
