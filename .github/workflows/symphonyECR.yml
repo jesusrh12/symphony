@@ -56,7 +56,7 @@ jobs:
       - name: coverage
         run: |
               go version &&
-              go test -coverprofile=coverage.xml -covermode=count -json > report.json ./...
+              go test -coverprofile=coverage.out -covermode=count -json > report.json ./...
               exit 0
        
       - uses: sonarsource/sonarqube-scan-action@master
@@ -64,10 +64,17 @@ jobs:
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.xml
+              -Dsonar.go.coverage.reportPaths=coverage.out
               -Dsonar.go.tests.reportPaths=report.json
              
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           LC_ALL: "ru_RU.UTF-8"
+
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        # Force to fail step after specific time
+        timeout-minutes: 4
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
