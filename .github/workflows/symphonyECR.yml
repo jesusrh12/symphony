@@ -54,6 +54,8 @@ jobs:
           fetch-depth: 0
           
       - name: coverage
+        env:
+          DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
         run: |
               go version &&
               go test -cover -coverprofile=coverage-all.out -covermode=count -json > report.json ./...
