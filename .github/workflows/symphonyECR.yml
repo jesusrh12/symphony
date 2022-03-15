@@ -73,14 +73,18 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           LC_ALL: "ru_RU.UTF-8"
 
+      - name: Create report-task-https.txt with changed urls
+        run:  sed -i s/http\:/https\:/g build/sonar/report-task.txt
+
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
-        with:
-          scanMetadataReportFile: .scannerwork/report-task.txt
-        # Force to fail step after specific time
-        #timeout-minutes: 5
+        timeout-minutes: 5
         env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: "Example show SonarQube Quality Gate Status value"
-        run: echo "The Status is ${{ steps.sqQualityGateCk.outputs.qualityGateStatus }}"
+        with:
+          scanMetadataReportFile: build/sonar/report-task.txt
+        # Force to fail step after specific time
+        #timeout-minutes: 5
+        
+    
  
