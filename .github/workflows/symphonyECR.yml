@@ -78,6 +78,8 @@ jobs:
         with:
           scanMetadataReportFile: .scannerwork/report-task.txt
         # Force to fail step after specific time
-        timeout-minutes: 5
+        #timeout-minutes: 5
         env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+         LC_ALL: "ru_RU.UTF-8"
