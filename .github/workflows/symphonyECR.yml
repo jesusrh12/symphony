@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         env:
           DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
-        run: go test -race -v ./...  
+        run: go test -race -v -cover ./...  
 
  sonarqube:
     runs-on: ubuntu-latest
@@ -54,11 +54,9 @@ jobs:
           fetch-depth: 0
           
       - name: coverage
-        env:
-          DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
         run: |
               go version &&
-              go test -cover -coverprofile=coverage-all.out -covermode=count -json > report.json ./...
+              go test -coverprofile=coverage-all.out -covermode=count -json > report.json ./...
               exit 0
        
       - uses: sonarsource/sonarqube-scan-action@master
