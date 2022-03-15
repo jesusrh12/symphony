@@ -65,7 +65,6 @@ jobs:
         with:
             projectBaseDir: .
             args: >
-              -Dsonar.projectKey=jesusrh12_symphony-master
               -Dsonar.go.coverage.reportPaths=coverage.out
               -Dsonar.go.tests.reportPaths=report.json
         # Force to fail step after specific time
