@@ -1,19 +1,15 @@
 // Copyright (c) 2004-present Facebook All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
 package complexity_test
-
 import (
 	"reflect"
 	"testing"
-
 	"github.com/AlekSi/pointer"
 	"github.com/facebookincubator/symphony/graph/graphql/complexity"
 	"github.com/scylladb/go-set/strset"
 	"github.com/stretchr/testify/require"
 )
-
 func TestComplexityRoot(t *testing.T) {
 	exempted := strset.New(
 		"Equipment.Ports",
@@ -49,7 +45,6 @@ func TestComplexityRoot(t *testing.T) {
 		"exempted set contains unchecked items: %s", exempted,
 	)
 }
-
 func TestQueryComplexity(t *testing.T) {
 	exempted := strset.New(
 		"ActionType",
@@ -82,7 +77,6 @@ func TestQueryComplexity(t *testing.T) {
 		"exempted set contains unchecked items: %s", exempted,
 	)
 }
-
 func TestPaginationComplexity(t *testing.T) {
 	tests := []struct {
 		name            string
@@ -125,7 +119,6 @@ func TestPaginationComplexity(t *testing.T) {
 		})
 	}
 }
-
 func TestSearchComplexity(t *testing.T) {
 	tests := []struct {
 		name            string
