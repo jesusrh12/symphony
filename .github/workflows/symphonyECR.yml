@@ -79,7 +79,6 @@ jobs:
           scanMetadataReportFile: .scannerwork/report-task.txt
         # Force to fail step after specific time
         #timeout-minutes: 5
-        env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: "Example show SonarQube Quality Gate Status value"
+        run: echo "The Status is ${{ steps.sqQualityGateCk.outputs.qualityGateStatus }}"
  
