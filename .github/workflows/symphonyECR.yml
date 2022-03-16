@@ -62,6 +62,9 @@ jobs:
         run: |
               sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' ./coverage.out
               
+      - name: lista archivos
+        run: ls-la | pwd
+              
       - uses: sonarsource/sonarqube-scan-action@master          
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
