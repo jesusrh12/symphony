@@ -65,7 +65,13 @@ jobs:
       - name: lista archivos
         run: ls-la | pwd
               
-      - uses: sonarsource/sonarqube-scan-action@master          
+      - uses: sonarsource/sonarqube-scan-action@master 
+        with:
+            projectBaseDir: .
+            args: >
+              -Dsonar.projectKey=jesusrh12_symphony-master
+              -Dsonar.go.coverage.reportPaths=coverage.out
+              -Dsonar.go.tests.reportPaths=report.json      
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
