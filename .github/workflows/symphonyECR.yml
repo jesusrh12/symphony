@@ -46,6 +46,7 @@ jobs:
         run: go test -race -v -cover -covermode=count -json > report.json ./...  
  sonarqube:
     runs-on: ubuntu-latest
+    needs: unit-test
     steps:
       - uses: actions/checkout@v2
         with:
