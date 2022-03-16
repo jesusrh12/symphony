@@ -54,14 +54,7 @@ jobs:
       - name: Sonar Scan
         run: |
               go version &&
-              go test -coverprofile=coverage.out -covermode=count -json > report.json ./.. && go tool cover -func=coverage.out
-              
-              exit 0
-      - name: Fix code coverage paths
-        working-directory: .
-        run: |
-              sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.out
-              
+              go test -coverprofile=coverage.out -covermode=count -json > report.json ./..
       - name: lista archivos
         run: ls -la && pwd
               
