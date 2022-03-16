@@ -61,17 +61,12 @@ jobs:
         working-directory: .
         run: |
               sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' ./coverage.out
-      - uses: sonarsource/sonarqube-scan-action@master 
-        with:
-            projectBaseDir: .
-            args: >
-              -Dsonar.projectKey=jesusrh12_symphony-master
-             # -Dsonar.go.coverage.reportPaths=coverage.out
-             # -Dsonar.go.tests.reportPaths=report.json
+      - uses: sonarsource/sonarqube-scan-action@master          
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           LC_ALL: "ru_RU.UTF-8"
+          
 
       - name: Create report-task-https.txt with changed urls
         run:  sed -i s/http\:/https\:/g .scannerwork/report-task.txt
