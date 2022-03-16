@@ -10,7 +10,40 @@ on:
       - app/mobile/**
       
 jobs:
-
+ unit-test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -proot"
+          --health-interval 10s
+          --health-start-period 10s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.15'
+     
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-go-         
+      - name: Download dependencies
+        run: go mod download
+      - name: Run tests
+        env:
+          DB_URL: mysql://root:root@localhost:3306/?charset=utf8&parseTime=true&interpolateParams=true
+        run: go test -race -v -cover -covermode=count -json > report.json ./...  
  sonarqube:
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +53,7 @@ jobs:
       - name: Sonar Scan
         run: |
               go version &&
-              go test -coverprofile=coverage.out -covermode=count -json > report.json ./... && go tool cover -func=coverage.out
+              go test -coverprofile=coverage.out ./... && go tool cover -func=coverage.out
               exit 0
       - name: Fix code coverage paths
         working-directory: .
