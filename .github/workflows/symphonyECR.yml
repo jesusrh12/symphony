@@ -63,14 +63,14 @@ jobs:
               sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' ./coverage.out
               
       - name: lista archivos
-        run: ls-la | pwd
+        run: ls -la | pwd
               
       - uses: sonarsource/sonarqube-scan-action@master 
         with:
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.out
+              -Dsonar.go.coverage.reportPaths=report.json
               -Dsonar.go.tests.reportPaths=report.json      
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
