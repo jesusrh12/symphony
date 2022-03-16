@@ -10,6 +10,7 @@ on:
       - app/mobile/**
       
 jobs:
+
  sonarqube:
     runs-on: ubuntu-latest
     steps:
