@@ -69,8 +69,7 @@ jobs:
           LC_ALL: "ru_RU.UTF-8"
           
 
-      - name: Create report-task-https.txt with changed urls
-        run:  sed -i s/http\:/https\:/g .scannerwork/report-task.txt
+
 
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
