@@ -66,8 +66,8 @@ jobs:
             projectBaseDir: .
             args: >
               -Dsonar.projectKey=jesusrh12_symphony-master
-              -Dsonar.go.coverage.reportPaths=coverage.out
-              -Dsonar.go.tests.reportPaths=report.json
+             # -Dsonar.go.coverage.reportPaths=coverage.out
+             # -Dsonar.go.tests.reportPaths=report.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
