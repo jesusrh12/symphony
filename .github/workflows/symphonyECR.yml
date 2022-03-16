@@ -54,7 +54,8 @@ jobs:
       - name: Sonar Scan
         run: |
               go version &&
-              go test -cover -coverprofile=coverage.out -covermode=count -json > report.json ./.. && go tool cover -func=coverage.out
+              go test -coverprofile=coverage.out -covermode=count -json > report.json ./.. && go tool cover -func=coverage.out
+              
               exit 0
       - name: Fix code coverage paths
         working-directory: .
