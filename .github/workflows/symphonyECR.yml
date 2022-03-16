@@ -59,7 +59,7 @@ jobs:
       - name: Fix code coverage paths
         working-directory: .
         run: |
-              sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' ./coverage.out
+              sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.out
               
       - name: lista archivos
         run: ls -la && pwd
