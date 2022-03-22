@@ -133,8 +133,12 @@ jobs:
         run: docker-compose pull
       - name: Build services
         run: docker-compose build --parallel
+      - name: docker images
+        run: docker images
       - name: Start services
         run: docker-compose up -d --scale tests=0 --scale pytests=0
+      - name: Status services
+        run: docker ps 
       - name: Run go tests
         run: docker-compose run --use-aliases tests
       - name: Run python tests
