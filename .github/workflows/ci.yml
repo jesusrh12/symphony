@@ -139,6 +139,8 @@ jobs:
         run: docker-compose up -d --scale tests=0 --scale pytests=0
       - name: Status services
         run: docker ps 
+        env:
+           Continous_Up: ${{ docker ps | awk '/!Up/ {print}' }}
       - name: Run go tests
         run: docker-compose run --use-aliases tests
       - name: Run python tests
