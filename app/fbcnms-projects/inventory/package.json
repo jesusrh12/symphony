@@ -28,7 +28,7 @@
     "is-url": "^1.2.4",
     "jointjs": "^3.2.0",
     "lodash": "^4.17.11",
-    "mapbox-gl": "^0.53.0",
+    "mapbox-gl": "^2.8.2",
     "moment": "^2.24.0",
     "notistack": "^0.8.5",
     "react": "^16.8.6",
